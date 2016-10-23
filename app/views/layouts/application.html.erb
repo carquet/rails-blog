@@ -28,18 +28,22 @@
 		<li><a href="https://twitter.com/?lang=en">Twitter</li>
 		<li><a href="https://github.com/carquet"></a>Github</li>
 		<li><a href="mailto:laetitiacarquet@hotmail.com">Email</a></li>
-	</ul>
+  </ul>
+  <%if !user_signed_in?%>
   <p class="sign_in">Admin login</p>
+  <%end%>
   </div>
 
   <div id="main_content">
     <div id="header">
       <p>All posts</p>
 
+    <% if user_signed_in?%>
       <div class="buttons">
         <button class="button"><%=link_to "new post", new_post_path%></button>
         <button class="button">log out</button>
       </div>
+      <%end%>
     </div>
     <%= yield %>
     <!-- <div id="license"><div>Icons made by <a href="http://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div> -->
